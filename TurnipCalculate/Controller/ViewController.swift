@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        title = "무 값 계산기"
+
         days = ["월", "화", "수", "목", "금", "토"]
         turnip = [90.0, 85.0, 70.0, 65.0, 55.0, 45.0]
         
@@ -43,8 +45,17 @@ class ViewController: UIViewController {
         
     
         chartDataSet.highlightEnabled = false //선택 x
-
         lineChartView.doubleTapToZoomEnabled = false //터치시 줌 x
+        
+        //x축 위치, 포맷
+        lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
+        lineChartView.xAxis.setLabelCount(dataPoins.count, force: false)
+        
+        //오른쪽 제거
+        lineChartView.rightAxis.enabled = false
+        
+
     }
 
 
