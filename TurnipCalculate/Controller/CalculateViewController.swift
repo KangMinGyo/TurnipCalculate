@@ -10,7 +10,7 @@ import Charts
 
 class CalculateViewController: UIViewController {
 
-    @IBOutlet var combinedChartView: CombinedChartView!
+    @IBOutlet var lineChartView: LineChartView!
     
     var days: [String] = []
     //입력값
@@ -55,7 +55,7 @@ class CalculateViewController: UIViewController {
         satAM = TurnipInfomation.shared.satAM
         satPM = TurnipInfomation.shared.satPM
         
-        days = ["월 오전", "월 오후", "화 오전", "화 오후", "수 오전", "수 오후", "목 오전", "목 오후", "금 오전", "금 오후", "토 오전", "토 오후"]
+        days = ["월AM", "월PM", "화AM", "화PM", "수AM", "수PM", "목AM", "목PM", "금AM", "금PM", "토AM", "토PM"]
         
 
     }
@@ -107,6 +107,7 @@ class CalculateViewController: UIViewController {
     }
     
     func setChart(dataPoints: [String], minLines: [Double], maxLines: [Double]) {
+        //데이터 생성
         var minLineDataEntries: [ChartDataEntry] = []
         var maxLineDataEntries: [ChartDataEntry] = []
         
@@ -119,35 +120,45 @@ class CalculateViewController: UIViewController {
             
         }
             
-            //데이터셋 생성
-            let minLineChartDataSet = LineChartDataSet(entries: minLineDataEntries, label: "최소값")
-            let maxLineChartDataSet = LineChartDataSet(entries: maxLineDataEntries, label: "최대값")
+        //데이터셋 생성
+        let minLineChartDataSet = LineChartDataSet(entries: minLineDataEntries, label: "최소값")
+        let maxLineChartDataSet = LineChartDataSet(entries: maxLineDataEntries, label: "최대값")
             
-            //색상 변경
-            minLineChartDataSet.colors = [.red]
-            maxLineChartDataSet.colors = [.blue]
+        //색상 변경
+        minLineChartDataSet.colors = [.red]
+        maxLineChartDataSet.colors = [.blue]
             
-            //데이터 생성
-            let data: CombinedChartData = CombinedChartData()
-            data.lineData = LineChartData(dataSet: minLineChartDataSet)
-            //data.lineData = LineChartData(dataSet: maxLineChartDataSet)
+        //데이터 생성
+        let data: LineChartData = LineChartData()
+        data.addDataSet(minLineChartDataSet)
+        data.addDataSet(maxLineChartDataSet)
             
-            combinedChartView.data = data
+        lineChartView.data = data
             
-            //x축 레이블
-            combinedChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
-            combinedChartView.xAxis.setLabelCount(dataPoints.count, force: false)
-            combinedChartView.xAxis.labelPosition = .bottom
+        //x축 레이블
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
+        lineChartView.xAxis.setLabelCount(dataPoints.count, force: true)
+        lineChartView.xAxis.labelPosition = .bottom
 
-            // 오른쪽 레이블 제거
-            combinedChartView.rightAxis.enabled = false
+        // 오른쪽 레이블 제거
+        lineChartView.rightAxis.enabled = false
             
-            // 선택 안되게
-            minLineChartDataSet.highlightEnabled = false
-            maxLineChartDataSet.highlightEnabled = false
+        // 선택 안되게
+        minLineChartDataSet.highlightEnabled = false
+        maxLineChartDataSet.highlightEnabled = false
             
-            // 줌 안되게
-            combinedChartView.doubleTapToZoomEnabled = false
+        // 줌 안되게
+        lineChartView.doubleTapToZoomEnabled = false
+        
+        //원 색, 크기
+        minLineChartDataSet.circleRadius = 3.0
+        maxLineChartDataSet.circleRadius = 3.0
+        minLineChartDataSet.circleHoleRadius = 3.0
+        maxLineChartDataSet.circleHoleRadius = 3.0
+        
+        minLineChartDataSet.circleColors = [.gray]
+        maxLineChartDataSet.circleColors = [.gray]
+        
 
     }
 
