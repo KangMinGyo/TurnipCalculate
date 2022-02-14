@@ -13,6 +13,9 @@
 		3D84377627B7A08F00BEBDF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D84377427B7A08F00BEBDF6 /* Main.storyboard */; };
 		3D84377827B7A09300BEBDF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D84377727B7A09300BEBDF6 /* Assets.xcassets */; };
 		3D84377B27B7A09300BEBDF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D84377927B7A09300BEBDF6 /* LaunchScreen.storyboard */; };
+		3D84378327B7FFEB00BEBDF6 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */; };
+		3D84378627B816CD00BEBDF6 /* Turnip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84378527B816CD00BEBDF6 /* Turnip.swift */; };
+		3D84378A27B9300400BEBDF6 /* TurnipInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84378927B9300400BEBDF6 /* TurnipInfomation.swift */; };
 		5FEB41DFCE08819B0FCC0B5F /* Pods_TurnipCalculate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A695328AC537C22330EDEF /* Pods_TurnipCalculate.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		3D84377727B7A09300BEBDF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D84377A27B7A09300BEBDF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D84377C27B7A09300BEBDF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
+		3D84378527B816CD00BEBDF6 /* Turnip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turnip.swift; sourceTree = "<group>"; };
+		3D84378927B9300400BEBDF6 /* TurnipInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnipInfomation.swift; sourceTree = "<group>"; };
 		4D15662B2B7DC92A270C4372 /* Pods-TurnipCalculate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurnipCalculate.debug.xcconfig"; path = "Target Support Files/Pods-TurnipCalculate/Pods-TurnipCalculate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,15 +69,26 @@
 		3D84376D27B7A08F00BEBDF6 /* TurnipCalculate */ = {
 			isa = PBXGroup;
 			children = (
+				3D84378427B7FFF100BEBDF6 /* Controller */,
 				3D84376E27B7A08F00BEBDF6 /* AppDelegate.swift */,
 				3D84377027B7A08F00BEBDF6 /* SceneDelegate.swift */,
-				3D84377227B7A08F00BEBDF6 /* ViewController.swift */,
 				3D84377427B7A08F00BEBDF6 /* Main.storyboard */,
 				3D84377727B7A09300BEBDF6 /* Assets.xcassets */,
 				3D84377927B7A09300BEBDF6 /* LaunchScreen.storyboard */,
 				3D84377C27B7A09300BEBDF6 /* Info.plist */,
+				3D84378527B816CD00BEBDF6 /* Turnip.swift */,
+				3D84378927B9300400BEBDF6 /* TurnipInfomation.swift */,
 			);
 			path = TurnipCalculate;
+			sourceTree = "<group>";
+		};
+		3D84378427B7FFF100BEBDF6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */,
+				3D84377227B7A08F00BEBDF6 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B3B681F3D1227662D1D22A10 /* Frameworks */ = {
@@ -88,7 +105,6 @@
 				4D15662B2B7DC92A270C4372 /* Pods-TurnipCalculate.debug.xcconfig */,
 				3998ADD3A1778BFDC6E227F6 /* Pods-TurnipCalculate.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,8 +224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D84377327B7A08F00BEBDF6 /* ViewController.swift in Sources */,
+				3D84378327B7FFEB00BEBDF6 /* CalculateViewController.swift in Sources */,
 				3D84376F27B7A08F00BEBDF6 /* AppDelegate.swift in Sources */,
+				3D84378627B816CD00BEBDF6 /* Turnip.swift in Sources */,
 				3D84377127B7A08F00BEBDF6 /* SceneDelegate.swift in Sources */,
+				3D84378A27B9300400BEBDF6 /* TurnipInfomation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

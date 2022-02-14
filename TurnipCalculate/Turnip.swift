@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Turnip: Codable {
+    let filters: [Int]
+    let minWeekValue: Int
+    let minMaxPattern: [[Int]]
+    let avgPattern: [Int]
+}
+

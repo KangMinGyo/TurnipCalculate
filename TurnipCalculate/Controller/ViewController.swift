@@ -6,57 +6,76 @@
 //
 
 import UIKit
-import Charts
 
 class ViewController: UIViewController {
 
-    @IBOutlet var lineChartView: LineChartView!
+    @IBOutlet weak var purchasePrice: UITextField! //매입가격
     
-    var days: [String] = []
-    var turnip: [Double] = []
+    @IBOutlet weak var monAMTextField: UITextField!
+    @IBOutlet weak var monPMTextField: UITextField!
     
+    @IBOutlet weak var tueAMTextField: UITextField!
+    @IBOutlet weak var tuePMTextField: UITextField!
+    
+    @IBOutlet weak var wenAMTextField: UITextField!
+    @IBOutlet weak var wenPMTextField: UITextField!
+    
+    @IBOutlet weak var thuAMTextField: UITextField!
+    @IBOutlet weak var thuPMTextField: UITextField!
+    
+    @IBOutlet weak var friAMTextField: UITextField!
+    @IBOutlet weak var friPMTextField: UITextField!
+    
+    @IBOutlet weak var satAMTextField: UITextField!
+    @IBOutlet weak var satPMTextField: UITextField!
+    
+//    var sunPrice: String?
+//    var monAM: String?
+//    var monPM: String?
+//    var tueAM: String?
+//    var tuePM: String?
+//    var wenAM: String?
+//    var wenPM: String?
+//    var thuAM: String?
+//    var thuPM: String?
+//    var friAM: String?
+//    var friPM: String?
+//    var satAM: String?
+//    var satPM: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "무 값 계산기"
-
-        days = ["월", "화", "수", "목", "금", "토"]
-        turnip = [90.0, 85.0, 70.0, 65.0, 55.0, 45.0]
-        
-        setChart(dataPoins: days, values: turnip)
-        
+        title = "무 값 입력"
     }
     
-    func setChart(dataPoins: [String], values: [Double]) {
-        var dataEntries: [ChartDataEntry] = []
-        for i in 0..<turnip.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: turnip[i])
-            dataEntries.append(dataEntry)
-        }
+    @IBAction func calculateButton(_ sender: UIButton) {
+        TurnipInfomation.shared.sunPrice = purchasePrice.text
+        TurnipInfomation.shared.monAM = monAMTextField.text
+        TurnipInfomation.shared.monPM = monPMTextField.text
+        TurnipInfomation.shared.tueAM = tueAMTextField.text
+        TurnipInfomation.shared.tuePM = tuePMTextField.text
+        TurnipInfomation.shared.wenAM = wenAMTextField.text
+        TurnipInfomation.shared.wenPM = wenPMTextField.text
+        TurnipInfomation.shared.thuAM = thuAMTextField.text
+        TurnipInfomation.shared.thuPM = thuPMTextField.text
+        TurnipInfomation.shared.friAM = friAMTextField.text
+        TurnipInfomation.shared.friPM = friPMTextField.text
+        TurnipInfomation.shared.satAM = satAMTextField.text
+        TurnipInfomation.shared.satPM = satPMTextField.text
         
-        let chartDataSet = LineChartDataSet(entries: dataEntries, label: "무 값")
-        
-        // 차트 컬러
-        chartDataSet.colors = [.systemRed]
-
-        // 데이터 삽입
-        let chartData = LineChartData(dataSet: chartDataSet)
-        lineChartView.data = chartData
         
     
-        chartDataSet.highlightEnabled = false //선택 x
-        lineChartView.doubleTapToZoomEnabled = false //터치시 줌 x
-        
-        //x축 위치, 포맷
-        lineChartView.xAxis.labelPosition = .bottom
-        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
-        lineChartView.xAxis.setLabelCount(dataPoins.count, force: false)
-        
-        //오른쪽 제거
-        lineChartView.rightAxis.enabled = false
-        
 
+//    // MARK: - Navigation
+//
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//
     }
+
 
 
 }
