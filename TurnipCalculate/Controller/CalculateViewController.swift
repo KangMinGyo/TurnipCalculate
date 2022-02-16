@@ -96,8 +96,10 @@ class CalculateViewController: UIViewController {
                 print(self.minLine)
                 print(self.maxLine)
             
-                self.setChart(dataPoints: self.days, minLines: self.minLine, maxLines: self.maxLine)
+                DispatchQueue.main.async {
+                    self.setChart(dataPoints: self.days, minLines: self.minLine, maxLines: self.maxLine)
 
+                }
         
             } catch(let err) {
                 print(err.localizedDescription)
