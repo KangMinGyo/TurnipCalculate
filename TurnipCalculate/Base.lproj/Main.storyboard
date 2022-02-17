@@ -238,7 +238,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2C1-3M-abX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Rwy-ym-sGJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Rwy-ym-sGJ">
+                            <connections>
+                                <action selector="initButton:" destination="BYZ-38-t0r" id="AO0-7b-gC7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="friAMTextField" destination="AVi-sW-vrd" id="e4f-1V-gA4"/>

@@ -28,26 +28,29 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var satAMTextField: UITextField!
     @IBOutlet weak var satPMTextField: UITextField!
-    
-//    var sunPrice: String?
-//    var monAM: String?
-//    var monPM: String?
-//    var tueAM: String?
-//    var tuePM: String?
-//    var wenAM: String?
-//    var wenPM: String?
-//    var thuAM: String?
-//    var thuPM: String?
-//    var friAM: String?
-//    var friPM: String?
-//    var satAM: String?
-//    var satPM: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "무 값 입력"
     }
+    
+    @IBAction func initButton(_ sender: UIBarButtonItem) {
+        purchasePrice.text = ""
+        monAMTextField.text = ""
+        monPMTextField.text = ""
+        tueAMTextField.text = ""
+        tuePMTextField.text = ""
+        wenAMTextField.text = ""
+        wenPMTextField.text = ""
+        thuAMTextField.text = ""
+        thuPMTextField.text = ""
+        friAMTextField.text = ""
+        friPMTextField.text = ""
+        satAMTextField.text = ""
+        satPMTextField.text = ""
+    }
+    
     
     @IBAction func calculateButton(_ sender: UIButton) {
         TurnipInfomation.shared.sunPrice = purchasePrice.text
@@ -64,9 +67,6 @@ class ViewController: UIViewController {
         TurnipInfomation.shared.satAM = satAMTextField.text
         TurnipInfomation.shared.satPM = satPMTextField.text
         
-        
-    
-
 //    // MARK: - Navigation
 //
 //    // In a storyboard-based application, you will often want to do a little preparation before navigation
