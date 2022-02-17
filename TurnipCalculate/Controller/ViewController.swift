@@ -29,10 +29,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var satAMTextField: UITextField!
     @IBOutlet weak var satPMTextField: UITextField!
 
+    @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "무 값 입력"
+        nextButton.isEnabled = false
     }
     
     @IBAction func initButton(_ sender: UIBarButtonItem) {
@@ -51,6 +54,13 @@ class ViewController: UIViewController {
         satPMTextField.text = ""
     }
     
+    @IBAction func textFieldValueChanged(_ sender: UITextField) {
+        if purchasePrice.text != "" {
+            nextButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
+        }
+    }
     
     @IBAction func calculateButton(_ sender: UIButton) {
         TurnipInfomation.shared.sunPrice = purchasePrice.text
