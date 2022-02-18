@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var purchasePrice: UITextField! //매입가격
     
@@ -61,6 +61,24 @@ class ViewController: UIViewController {
             nextButton.isEnabled = false
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.purchasePrice.resignFirstResponder()
+            self.monAMTextField.resignFirstResponder()
+            self.monPMTextField.resignFirstResponder()
+            self.tueAMTextField.resignFirstResponder()
+            self.tuePMTextField.resignFirstResponder()
+            self.wenAMTextField.resignFirstResponder()
+            self.wenPMTextField.resignFirstResponder()
+            self.thuAMTextField.resignFirstResponder()
+            self.tuePMTextField.resignFirstResponder()
+            self.friAMTextField.resignFirstResponder()
+            self.friPMTextField.resignFirstResponder()
+            self.satAMTextField.resignFirstResponder()
+            self.satPMTextField.resignFirstResponder()
+        
+            
+        }
     
     @IBAction func calculateButton(_ sender: UIButton) {
         TurnipInfomation.shared.sunPrice = purchasePrice.text
