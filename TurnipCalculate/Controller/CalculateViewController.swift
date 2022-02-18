@@ -40,6 +40,7 @@ class CalculateViewController: UIViewController {
         super.viewDidLoad()
         
         title = "결과"
+        lineChartView.noDataText = "로딩중.."
         
         sunPrice = TurnipInfomation.shared.sunPrice
         monAM = TurnipInfomation.shared.monAM
