@@ -39,7 +39,7 @@ class CalculateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "결과"
+        title = "이번주 무값"
         lineChartView.noDataText = "로딩중.."
         
         sunPrice = TurnipInfomation.shared.sunPrice
