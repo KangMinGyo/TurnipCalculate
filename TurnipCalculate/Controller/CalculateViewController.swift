@@ -161,7 +161,6 @@ class CalculateViewController: UIViewController {
         
         minLineChartDataSet.circleColors = [.gray]
         maxLineChartDataSet.circleColors = [.gray]
-        
 
     }
 
