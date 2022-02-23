@@ -40,21 +40,37 @@ class CalculateViewController: UIViewController {
         super.viewDidLoad()
         
         title = "이번주 무값"
+
         lineChartView.noDataText = "로딩중.."
         
-        sunPrice = TurnipInfomation.shared.sunPrice
-        monAM = TurnipInfomation.shared.monAM
-        monPM = TurnipInfomation.shared.monPM
-        tueAM = TurnipInfomation.shared.tueAM
-        tuePM = TurnipInfomation.shared.tuePM
-        wenAM = TurnipInfomation.shared.wenAM
-        wenPM = TurnipInfomation.shared.wenPM
-        thuAM = TurnipInfomation.shared.thuAM
-        tuePM = TurnipInfomation.shared.tuePM
-        friAM = TurnipInfomation.shared.friAM
-        friPM = TurnipInfomation.shared.friPM
-        satAM = TurnipInfomation.shared.satAM
-        satPM = TurnipInfomation.shared.satPM
+
+        sunPrice = UserDefaults.standard.object(forKey: "sunday") as? String
+        monAM = UserDefaults.standard.object(forKey: "monAM") as? String
+        monPM = UserDefaults.standard.object(forKey: "monPM") as? String
+        tueAM = UserDefaults.standard.object(forKey: "tueAM") as? String
+        tuePM = UserDefaults.standard.object(forKey: "tuePM") as? String
+        wenAM = UserDefaults.standard.object(forKey: "wenAM") as? String
+        wenPM = UserDefaults.standard.object(forKey: "wenPM") as? String
+        thuAM = UserDefaults.standard.object(forKey: "thuAM") as? String
+        thuPM = UserDefaults.standard.object(forKey: "thuPM") as? String
+        friAM = UserDefaults.standard.object(forKey: "friAM") as? String
+        friPM = UserDefaults.standard.object(forKey: "friPM") as? String
+        satAM = UserDefaults.standard.object(forKey: "satAM") as? String
+        satPM = UserDefaults.standard.object(forKey: "satPM") as? String
+        
+//        sunPrice = TurnipInfomation.shared.sunPrice
+//        monAM = TurnipInfomation.shared.monAM
+//        monPM = TurnipInfomation.shared.monPM
+//        tueAM = TurnipInfomation.shared.tueAM
+//        tuePM = TurnipInfomation.shared.tuePM
+//        wenAM = TurnipInfomation.shared.wenAM
+//        wenPM = TurnipInfomation.shared.wenPM
+//        thuAM = TurnipInfomation.shared.thuAM
+//        tuePM = TurnipInfomation.shared.tuePM
+//        friAM = TurnipInfomation.shared.friAM
+//        friPM = TurnipInfomation.shared.friPM
+//        satAM = TurnipInfomation.shared.satAM
+//        satPM = TurnipInfomation.shared.satPM
         
         days = ["월AM", "월PM", "화AM", "화PM", "수AM", "수PM", "목AM", "목PM", "금AM", "금PM", "토AM", "토PM"]
         

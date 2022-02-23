@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U5b-od-X4o">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,11 +30,11 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="80.5"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="구매가" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dzc-eV-dnh">
-                                                                <rect key="frame" x="83" y="30" width="284" height="20.5"/>
+                                                                <rect key="frame" x="83" y="5" width="284" height="70.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 <connections>
-                                                                    <action selector="textFieldValueChanged:" destination="9QQ-T3-bxl" eventType="editingDidEnd" id="gph-kJ-V70"/>
+                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="mZa-TM-vpi"/>
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsB-EM-5Ud">
@@ -48,10 +49,10 @@
                                                             <constraint firstItem="jsB-EM-5Ud" firstAttribute="leading" secondItem="97j-3v-P9h" secondAttribute="leading" constant="30" id="BeE-DG-8cV"/>
                                                             <constraint firstItem="Dzc-eV-dnh" firstAttribute="leading" secondItem="jsB-EM-5Ud" secondAttribute="trailing" constant="8.5" id="DfV-C5-Q0x"/>
                                                             <constraint firstItem="jsB-EM-5Ud" firstAttribute="top" secondItem="97j-3v-P9h" secondAttribute="top" constant="30" id="DhA-No-ife"/>
-                                                            <constraint firstItem="Dzc-eV-dnh" firstAttribute="top" secondItem="97j-3v-P9h" secondAttribute="top" constant="30" id="Leq-Z0-xb9"/>
+                                                            <constraint firstItem="Dzc-eV-dnh" firstAttribute="top" secondItem="97j-3v-P9h" secondAttribute="top" constant="5" id="Leq-Z0-xb9"/>
                                                             <constraint firstAttribute="bottom" secondItem="jsB-EM-5Ud" secondAttribute="bottom" constant="30" id="OUn-Qd-c4e"/>
                                                             <constraint firstAttribute="trailing" secondItem="Dzc-eV-dnh" secondAttribute="trailing" constant="7" id="gsP-ux-gVn"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Dzc-eV-dnh" secondAttribute="bottom" constant="30" id="zkO-UC-z8q"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Dzc-eV-dnh" secondAttribute="bottom" constant="5" id="zkO-UC-z8q"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrh-Vc-VNM">
@@ -96,11 +97,17 @@
                                                                                 <rect key="frame" x="124.5" y="0.0" width="85" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="ccq-8U-b72"/>
+                                                                                </connections>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fe6-E5-PCJ">
                                                                                 <rect key="frame" x="249.5" y="0.0" width="84.5" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="Rpd-ht-2Iq"/>
+                                                                                </connections>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -117,11 +124,17 @@
                                                                                 <rect key="frame" x="124.5" y="0.0" width="85" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="5bv-M5-XJl"/>
+                                                                                </connections>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsR-yk-9My">
                                                                                 <rect key="frame" x="249.5" y="0.0" width="84.5" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="avS-kT-t5a"/>
+                                                                                </connections>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -138,11 +151,17 @@
                                                                                 <rect key="frame" x="124.5" y="0.0" width="85" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="hVg-xB-Hza"/>
+                                                                                </connections>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kl9-UF-7jk">
                                                                                 <rect key="frame" x="249.5" y="0.0" width="84.5" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="JFS-XO-WGd"/>
+                                                                                </connections>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -159,11 +178,17 @@
                                                                                 <rect key="frame" x="124.5" y="0.0" width="85" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="f9J-0T-O5l"/>
+                                                                                </connections>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRM-kQ-NzQ">
                                                                                 <rect key="frame" x="249.5" y="0.0" width="84.5" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="vVT-Yl-4fE"/>
+                                                                                </connections>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -180,11 +205,17 @@
                                                                                 <rect key="frame" x="124.5" y="0.0" width="85" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="Ekt-nr-zHE"/>
+                                                                                </connections>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ShJ-Ee-dJq">
                                                                                 <rect key="frame" x="249.5" y="0.0" width="84.5" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="DMF-kd-Pby"/>
+                                                                                </connections>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -201,11 +232,17 @@
                                                                                 <rect key="frame" x="124.5" y="0.0" width="85" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="BUs-gz-D3I"/>
+                                                                                </connections>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4oM-dA-tLq">
                                                                                 <rect key="frame" x="249.5" y="0.0" width="84.5" height="34"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <connections>
+                                                                                    <outlet property="delegate" destination="9QQ-T3-bxl" id="9mF-yb-OFG"/>
+                                                                                </connections>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -227,8 +264,8 @@
                                                             <constraint firstAttribute="height" constant="40" id="QoW-WG-kfp"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="이번주 무 값은?"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="이번주 무 값은?"/>
                                                         <connections>
                                                             <action selector="calculateButton:" destination="9QQ-T3-bxl" eventType="touchUpInside" id="gEW-7m-ve0"/>
                                                             <segue destination="e3g-5U-vmu" kind="show" id="vX0-MR-wya"/>

@@ -35,7 +35,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         title = "무 값 입력"
-        nextButton.isEnabled = false
+
+        purchasePrice.text = UserDefaults.standard.object(forKey: "sunday") as? String
+        monAMTextField.text = UserDefaults.standard.object(forKey: "monAM") as? String
+        monPMTextField.text = UserDefaults.standard.object(forKey: "monPM") as? String
+        tueAMTextField.text = UserDefaults.standard.object(forKey: "tueAM") as? String
+        tuePMTextField.text = UserDefaults.standard.object(forKey: "tuePM") as? String
+        wenAMTextField.text = UserDefaults.standard.object(forKey: "wenAM") as? String
+        wenPMTextField.text = UserDefaults.standard.object(forKey: "wenPM") as? String
+        thuAMTextField.text = UserDefaults.standard.object(forKey: "thuAM") as? String
+        thuPMTextField.text = UserDefaults.standard.object(forKey: "thuPM") as? String
+        friAMTextField.text = UserDefaults.standard.object(forKey: "friAM") as? String
+        friPMTextField.text = UserDefaults.standard.object(forKey: "friPM") as? String
+        satAMTextField.text = UserDefaults.standard.object(forKey: "satAM") as? String
+        satPMTextField.text = UserDefaults.standard.object(forKey: "satPM") as? String
     }
     
     @IBAction func initButton(_ sender: UIBarButtonItem) {
@@ -54,46 +67,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
         satPMTextField.text = ""
     }
     
-    @IBAction func textFieldValueChanged(_ sender: UITextField) {
-        if purchasePrice.text != "" {
-            nextButton.isEnabled = true
-        } else {
-            nextButton.isEnabled = false
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.purchasePrice.resignFirstResponder()
-            self.monAMTextField.resignFirstResponder()
-            self.monPMTextField.resignFirstResponder()
-            self.tueAMTextField.resignFirstResponder()
-            self.tuePMTextField.resignFirstResponder()
-            self.wenAMTextField.resignFirstResponder()
-            self.wenPMTextField.resignFirstResponder()
-            self.thuAMTextField.resignFirstResponder()
-            self.tuePMTextField.resignFirstResponder()
-            self.friAMTextField.resignFirstResponder()
-            self.friPMTextField.resignFirstResponder()
-            self.satAMTextField.resignFirstResponder()
-            self.satPMTextField.resignFirstResponder()
-        
-            
-        }
-    
     @IBAction func calculateButton(_ sender: UIButton) {
-        TurnipInfomation.shared.sunPrice = purchasePrice.text
-        TurnipInfomation.shared.monAM = monAMTextField.text
-        TurnipInfomation.shared.monPM = monPMTextField.text
-        TurnipInfomation.shared.tueAM = tueAMTextField.text
-        TurnipInfomation.shared.tuePM = tuePMTextField.text
-        TurnipInfomation.shared.wenAM = wenAMTextField.text
-        TurnipInfomation.shared.wenPM = wenPMTextField.text
-        TurnipInfomation.shared.thuAM = thuAMTextField.text
-        TurnipInfomation.shared.thuPM = thuPMTextField.text
-        TurnipInfomation.shared.friAM = friAMTextField.text
-        TurnipInfomation.shared.friPM = friPMTextField.text
-        TurnipInfomation.shared.satAM = satAMTextField.text
-        TurnipInfomation.shared.satPM = satPMTextField.text
+//        TurnipInfomation.shared.sunPrice = purchasePrice.text
+//        TurnipInfomation.shared.monAM = monAMTextField.text
+//        TurnipInfomation.shared.monPM = monPMTextField.text
+//        TurnipInfomation.shared.tueAM = tueAMTextField.text
+//        TurnipInfomation.shared.tuePM = tuePMTextField.text
+//        TurnipInfomation.shared.wenAM = wenAMTextField.text
+//        TurnipInfomation.shared.wenPM = wenPMTextField.text
+//        TurnipInfomation.shared.thuAM = thuAMTextField.text
+//        TurnipInfomation.shared.thuPM = thuPMTextField.text
+//        TurnipInfomation.shared.friAM = friAMTextField.text
+//        TurnipInfomation.shared.friPM = friPMTextField.text
+//        TurnipInfomation.shared.satAM = satAMTextField.text
+//        TurnipInfomation.shared.satPM = satPMTextField.text
+        
+        UserDefaults.standard.set(purchasePrice.text, forKey: "sunday")
+        UserDefaults.standard.set(monAMTextField.text, forKey: "monAM")
+        UserDefaults.standard.set(monPMTextField.text, forKey: "monPM")
+        UserDefaults.standard.set(tueAMTextField.text, forKey: "tueAM")
+        UserDefaults.standard.set(tuePMTextField.text, forKey: "tuePM")
+        UserDefaults.standard.set(wenAMTextField.text, forKey: "wenAM")
+        UserDefaults.standard.set(wenPMTextField.text, forKey: "wenPM")
+        UserDefaults.standard.set(thuAMTextField.text, forKey: "thuAM")
+        UserDefaults.standard.set(thuPMTextField.text, forKey: "thuPM")
+        UserDefaults.standard.set(friAMTextField.text, forKey: "friAM")
+        UserDefaults.standard.set(friPMTextField.text, forKey: "friPM")
+        UserDefaults.standard.set(satAMTextField.text, forKey: "satAM")
+        UserDefaults.standard.set(satPMTextField.text, forKey: "satPM")
+        
         
 //    // MARK: - Navigation
 //
@@ -103,8 +105,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        // Pass the selected object to the new view controller.
 //
     }
-
-
+    
 
 }
 
