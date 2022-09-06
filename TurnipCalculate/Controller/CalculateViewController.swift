@@ -13,7 +13,6 @@ class CalculateViewController: UIViewController {
     @IBOutlet var lineChartView: LineChartView!
     
     var days: [String] = []
-    //입력값
     var value: [Int] = []
     var turnipValue: [Double] = []
     
@@ -57,20 +56,6 @@ class CalculateViewController: UIViewController {
         friPM = UserDefaults.standard.object(forKey: "friPM") as? String
         satAM = UserDefaults.standard.object(forKey: "satAM") as? String
         satPM = UserDefaults.standard.object(forKey: "satPM") as? String
-        
-//        sunPrice = TurnipInfomation.shared.sunPrice
-//        monAM = TurnipInfomation.shared.monAM
-//        monPM = TurnipInfomation.shared.monPM
-//        tueAM = TurnipInfomation.shared.tueAM
-//        tuePM = TurnipInfomation.shared.tuePM
-//        wenAM = TurnipInfomation.shared.wenAM
-//        wenPM = TurnipInfomation.shared.wenPM
-//        thuAM = TurnipInfomation.shared.thuAM
-//        tuePM = TurnipInfomation.shared.tuePM
-//        friAM = TurnipInfomation.shared.friAM
-//        friPM = TurnipInfomation.shared.friPM
-//        satAM = TurnipInfomation.shared.satAM
-//        satPM = TurnipInfomation.shared.satPM
         
         days = ["월AM", "월PM", "화AM", "화PM", "수AM", "수PM", "목AM", "목PM", "금AM", "금PM", "토AM", "토PM"]
         

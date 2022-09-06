@@ -69,15 +69,14 @@
 		3D84376D27B7A08F00BEBDF6 /* TurnipCalculate */ = {
 			isa = PBXGroup;
 			children = (
+				8C4A7C8C28C7FFE000B1CF58 /* Model */,
+				8C4A7C8F28C8036900B1CF58 /* View */,
 				3D84378427B7FFF100BEBDF6 /* Controller */,
 				3D84376E27B7A08F00BEBDF6 /* AppDelegate.swift */,
 				3D84377027B7A08F00BEBDF6 /* SceneDelegate.swift */,
-				3D84377427B7A08F00BEBDF6 /* Main.storyboard */,
 				3D84377727B7A09300BEBDF6 /* Assets.xcassets */,
 				3D84377927B7A09300BEBDF6 /* LaunchScreen.storyboard */,
 				3D84377C27B7A09300BEBDF6 /* Info.plist */,
-				3D84378527B816CD00BEBDF6 /* Turnip.swift */,
-				3D84378927B9300400BEBDF6 /* TurnipInfomation.swift */,
 			);
 			path = TurnipCalculate;
 			sourceTree = "<group>";
@@ -89,6 +88,23 @@
 				3D84377227B7A08F00BEBDF6 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8C4A7C8C28C7FFE000B1CF58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D84378527B816CD00BEBDF6 /* Turnip.swift */,
+				3D84378927B9300400BEBDF6 /* TurnipInfomation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C4A7C8F28C8036900B1CF58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D84377427B7A08F00BEBDF6 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B3B681F3D1227662D1D22A10 /* Frameworks */ = {

@@ -68,19 +68,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func calculateButton(_ sender: UIButton) {
-//        TurnipInfomation.shared.sunPrice = purchasePrice.text
-//        TurnipInfomation.shared.monAM = monAMTextField.text
-//        TurnipInfomation.shared.monPM = monPMTextField.text
-//        TurnipInfomation.shared.tueAM = tueAMTextField.text
-//        TurnipInfomation.shared.tuePM = tuePMTextField.text
-//        TurnipInfomation.shared.wenAM = wenAMTextField.text
-//        TurnipInfomation.shared.wenPM = wenPMTextField.text
-//        TurnipInfomation.shared.thuAM = thuAMTextField.text
-//        TurnipInfomation.shared.thuPM = thuPMTextField.text
-//        TurnipInfomation.shared.friAM = friAMTextField.text
-//        TurnipInfomation.shared.friPM = friPMTextField.text
-//        TurnipInfomation.shared.satAM = satAMTextField.text
-//        TurnipInfomation.shared.satPM = satPMTextField.text
         
         UserDefaults.standard.set(purchasePrice.text, forKey: "sunday")
         UserDefaults.standard.set(monAMTextField.text, forKey: "monAM")
