@@ -7,10 +7,12 @@
 
 import UIKit
 import Charts
+import GoogleMobileAds
 
 class CalculateViewController: UIViewController {
 
     @IBOutlet var lineChartView: LineChartView!
+    var bannerView: GADBannerView!
     
     var days: [String] = []
     var value: [Int] = []
@@ -38,11 +40,20 @@ class CalculateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //배너 사이즈 설정
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        
+        bannerView.adUnitID = "ca-app-pub-2824710392054396/7944605171"
+        bannerView.rootViewController = self
+        
+        bannerView.load(GADRequest())
+        
+        bannerView.delegate = self
+        
         title = "이번주 무값"
 
         lineChartView.noDataText = "로딩중.."
-        
-
+    
         sunPrice = UserDefaults.standard.object(forKey: "sunday") as? String
         monAM = UserDefaults.standard.object(forKey: "monAM") as? String
         monPM = UserDefaults.standard.object(forKey: "monPM") as? String
@@ -59,7 +70,6 @@ class CalculateViewController: UIViewController {
         
         days = ["월AM", "월PM", "화AM", "화PM", "수AM", "수PM", "목AM", "목PM", "금AM", "금PM", "토AM", "토PM"]
         
-
     }
     
     
@@ -69,8 +79,8 @@ class CalculateViewController: UIViewController {
             return
         }
         
-        let session: URLSession = URLSession(configuration: .default)
-        let dataTask: URLSessionDataTask = session.dataTask(with: url) {(data: Data?, response: URLResponse?, error: Error?) in
+        let session = URLSession(configuration: .default)
+        let dataTask = session.dataTask(with: url) {(data: Data?, response: URLResponse?, error: Error?) in
             
             if let error = error {
                 print(error.localizedDescription)
@@ -164,5 +174,54 @@ class CalculateViewController: UIViewController {
         maxLineChartDataSet.circleColors = [.gray]
 
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: bottomLayoutGuide,
+                              attribute: .top,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
+}
 
+extension CalculateViewController: GADBannerViewDelegate {
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("bannerViewDidReceiveAd")
+        //화면에 배너 뷰 추가
+        addBannerViewToView(bannerView)
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
+    }
 }

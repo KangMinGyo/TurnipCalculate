@@ -8,5 +8,6 @@ target 'TurnipCalculate' do
   # Pods for TurnipCalculate
 
   pod 'Charts'
+  pod 'Google-Mobile-Ads-SDK'
 
 end
