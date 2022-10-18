@@ -9,19 +9,15 @@ import UIKit
 import Charts
 import GoogleMobileAds
 
-class CalculateViewController: UIViewController {
-
-    @IBOutlet var lineChartView: LineChartView!
-    var bannerView: GADBannerView!
+class CalculateViewController: UIViewController, ChartViewDelegate {
+    
+    var lineChart = LineChartView()
     
     var days: [String] = []
-    var value: [Int] = []
-    var turnipValue: [Double] = []
-    
-    //결과값
-    var turnip: [[Int]] = [[]]
-    var minLine: [Double] = []
-    var maxLine: [Double] = []
+
+    var minmaxPattern = [[Int]]()
+    var minPattern = [Int]()
+    var maxPattern = [Int]()
     
     var sunPrice: String?
     var monAM: String?
@@ -37,23 +33,30 @@ class CalculateViewController: UIViewController {
     var satAM: String?
     var satPM: String?
     
+    lazy var bannerView: GADBannerView = {
+        let banner = GADBannerView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        return banner
+    }()
+    
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         
-        //배너 사이즈 설정
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        
-        bannerView.adUnitID = "ca-app-pub-2824710392054396/7944605171"
-        bannerView.rootViewController = self
-        
-        bannerView.load(GADRequest())
-        
-        bannerView.delegate = self
-        
-        title = "이번주 무값"
+        lineChart.delegate = self
 
-        lineChartView.noDataText = "로딩중.."
+        getTurnip()
+        getData()
+        
+        days = ["월AM", "월PM", "화AM", "화PM", "수AM", "수PM", "목AM", "목PM", "금AM", "금PM", "토AM", "토PM"]
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        chartData()
+    }
+
+    
+    func getTurnip() {
         sunPrice = UserDefaults.standard.object(forKey: "sunday") as? String
         monAM = UserDefaults.standard.object(forKey: "monAM") as? String
         monPM = UserDefaults.standard.object(forKey: "monPM") as? String
@@ -67,161 +70,72 @@ class CalculateViewController: UIViewController {
         friPM = UserDefaults.standard.object(forKey: "friPM") as? String
         satAM = UserDefaults.standard.object(forKey: "satAM") as? String
         satPM = UserDefaults.standard.object(forKey: "satPM") as? String
-        
-        days = ["월AM", "월PM", "화AM", "화PM", "수AM", "수PM", "목AM", "목PM", "금AM", "금PM", "토AM", "토PM"]
-        
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        guard let url: URL = URL(string: "https://api.ac-turnip.com/data/?f=\(sunPrice ?? "0")-\(monAM ?? "0")-\(monPM ?? "0")-\(tueAM ?? "0")-\(tuePM ?? "0")-\(wenAM ?? "0")-\(wenPM ?? "0")-\(thuAM ?? "0")-\(thuPM ?? "0")-\(friAM ?? "0")-\(friPM ?? "0")-\(satAM ?? "0")-\(satPM ?? "0")") else {
-            return
-        }
-        
-        let session = URLSession(configuration: .default)
-        let dataTask = session.dataTask(with: url) {(data: Data?, response: URLResponse?, error: Error?) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let data = data else { return }
-            
-            do {
-                let apiResponse: Turnip = try JSONDecoder().decode(Turnip.self, from: data)
-                
-                self.value = apiResponse.filters
-                for i in self.value {
-                    self.turnipValue.append(Double(i))
-                }
-                self.turnipValue.remove(at: 0)
-                
-                
-                self.turnip = apiResponse.minMaxPattern
-                for i in 0..<self.turnip.count {
-                    self.minLine.append(Double(self.turnip[i][0]))
-                    self.maxLine.append(Double(self.turnip[i][1]))
-                }
-                
-                print(self.minLine)
-                print(self.maxLine)
-            
+    func getData() {
+        TurnipService().getTurnip(sun: sunPrice ?? "0", monAm: monAM ?? "0", monPm: monPM ?? "0", tueAm: tueAM ?? "0", tuePm: tuePM ?? "0", wedAm: wenAM ?? "0", wedPm: wenPM ?? "0", thuAm: thuAM ?? "0", thuPm: thuPM ?? "0", friAm: friAM ?? "0", friPm: friPM ?? "0", satAm: satAM ?? "0", satPm: satPM ?? "0") { (result) in
+            switch result {
+            case .success(let response):
                 DispatchQueue.main.async {
-                    self.setChart(dataPoints: self.days, minLines: self.minLine, maxLines: self.maxLine)
-
+                    self.minmaxPattern.append(contentsOf: response.minMaxPattern)
+                    for value in self.minmaxPattern {
+                        self.minPattern.append(value[0])
+                        self.maxPattern.append(value[1])
+                    }
                 }
-        
-            } catch(let err) {
-                print(err.localizedDescription)
+            case .failure(_):
+                print("error")
             }
         }
-        dataTask.resume()
     }
     
-    func setChart(dataPoints: [String], minLines: [Double], maxLines: [Double]) {
-        //데이터 생성
-        var minLineDataEntries: [ChartDataEntry] = []
-        var maxLineDataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let minLineDataEntry = ChartDataEntry(x: Double(i), y: minLines[i])
-            let maxLineDataEntry = ChartDataEntry(x: Double(i), y: maxLines[i])
-            
+    func chartData() {
+        lineChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 3)
+        lineChart.center = view.center
+        view.addSubview(lineChart)
+        var minLineDataEntries = [ChartDataEntry]()
+        var maxLineDataEntries = [ChartDataEntry]()
+
+        for i in 0..<days.count {
+            let minLineDataEntry = ChartDataEntry(x: Double(i), y: Double(minPattern[i]))
+            let maxLineDataEntry = ChartDataEntry(x: Double(i), y: Double(maxPattern[i]))
+
             minLineDataEntries.append(minLineDataEntry)
             maxLineDataEntries.append(maxLineDataEntry)
-            
         }
-            
-        //데이터셋 생성
-        let minLineChartDataSet = LineChartDataSet(entries: minLineDataEntries, label: "최소값")
-        let maxLineChartDataSet = LineChartDataSet(entries: maxLineDataEntries, label: "최대값")
-            
-        //색상 변경
-        minLineChartDataSet.colors = [.red]
-        maxLineChartDataSet.colors = [.blue]
-            
-        //데이터 생성
-        let data: LineChartData = LineChartData()
-        data.addDataSet(minLineChartDataSet)
-        data.addDataSet(maxLineChartDataSet)
-            
-        lineChartView.data = data
-            
-        //x축 레이블
-        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
-        lineChartView.xAxis.setLabelCount(dataPoints.count, force: true)
-        lineChartView.xAxis.labelPosition = .bottom
 
+        let minset = LineChartDataSet(entries: minLineDataEntries, label: "최소값(min)")
+        let maxset = LineChartDataSet(entries: maxLineDataEntries, label: "최대값(max)")
+        
+        minset.colors = [.red]
+        maxset.colors = [.blue]
+        
+        let data = LineChartData(dataSets: [minset, maxset])
+        lineChart.data = data
+        
+        //x축 레이블
+        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
+        lineChart.xAxis.setLabelCount(days.count, force: true)
+        lineChart.xAxis.labelPosition = .bottom
+        lineChart.xAxis.labelFont = UIFont.systemFont(ofSize: 7)
+        
         // 오른쪽 레이블 제거
-        lineChartView.rightAxis.enabled = false
-            
+        lineChart.rightAxis.enabled = false
+        
         // 선택 안되게
-        minLineChartDataSet.highlightEnabled = false
-        maxLineChartDataSet.highlightEnabled = false
+        minset.highlightEnabled = false
+        maxset.highlightEnabled = false
             
         // 줌 안되게
-        lineChartView.doubleTapToZoomEnabled = false
+        lineChart.doubleTapToZoomEnabled = false
         
         //원 색, 크기
-        minLineChartDataSet.circleRadius = 3.0
-        maxLineChartDataSet.circleRadius = 3.0
-        minLineChartDataSet.circleHoleRadius = 3.0
-        maxLineChartDataSet.circleHoleRadius = 3.0
-        
-        minLineChartDataSet.circleColors = [.gray]
-        maxLineChartDataSet.circleColors = [.gray]
-
-    }
-    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-          [NSLayoutConstraint(item: bannerView,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: bottomLayoutGuide,
-                              attribute: .top,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: bannerView,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
-       }
-}
-
-extension CalculateViewController: GADBannerViewDelegate {
-    
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
-        //화면에 배너 뷰 추가
-        addBannerViewToView(bannerView)
-    }
-
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
-    }
-
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
-    }
-
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDIsmissScreen")
-    }
-
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
+        minset.circleRadius = 3.0
+        maxset.circleRadius = 3.0
+        minset.circleHoleRadius = 3.0
+        maxset.circleHoleRadius = 3.0
+        minset.circleColors = [.gray]
+        maxset.circleColors = [.gray]
     }
 }
+

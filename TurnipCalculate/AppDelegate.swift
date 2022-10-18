@@ -6,38 +6,35 @@
 //
 
 import UIKit
-import GoogleMobileAds
-import AdSupport
 import AppTrackingTransparency
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
+        //App Tracking Transparency
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    if #available(iOS 14, *) {
-                        ATTrackingManager.requestTrackingAuthorization { status in
-                            switch status {
-                            case .authorized:
-                                print("Authorized")
-                                print("IDFA = \(ASIdentifierManager.shared().advertisingIdentifier)")
-                            case .denied:
-                                print("Denied")
-                            case .notDetermined:
-                                print("Not Determined")
-                            case .restricted:
-                                print("Restricted")
-                            @unknown default:
-                                print("Unknow")
-                            }
-                        }
+            if #available(iOS 14, *) {
+                ATTrackingManager.requestTrackingAuthorization { status in
+                    switch status {
+                    case .authorized:
+                        print("enable tracking")
+                    case .denied:
+                        print("disable tracking")
+                    default:
+                        print("disable tracking")
                     }
+                }
+            }
         }
         return true
     }
+    
+    
 
     // MARK: UISceneSession Lifecycle
 
