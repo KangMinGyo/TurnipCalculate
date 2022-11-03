@@ -9,16 +9,14 @@
 /* Begin PBXBuildFile section */
 		3D84376F27B7A08F00BEBDF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84376E27B7A08F00BEBDF6 /* AppDelegate.swift */; };
 		3D84377127B7A08F00BEBDF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84377027B7A08F00BEBDF6 /* SceneDelegate.swift */; };
-		3D84377327B7A08F00BEBDF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84377227B7A08F00BEBDF6 /* ViewController.swift */; };
-		3D84377627B7A08F00BEBDF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D84377427B7A08F00BEBDF6 /* Main.storyboard */; };
+		3D84377327B7A08F00BEBDF6 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84377227B7A08F00BEBDF6 /* EnterViewController.swift */; };
 		3D84377827B7A09300BEBDF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D84377727B7A09300BEBDF6 /* Assets.xcassets */; };
-		3D84377B27B7A09300BEBDF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D84377927B7A09300BEBDF6 /* LaunchScreen.storyboard */; };
 		3D84378327B7FFEB00BEBDF6 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */; };
 		3D84378627B816CD00BEBDF6 /* Turnip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84378527B816CD00BEBDF6 /* Turnip.swift */; };
 		5FEB41DFCE08819B0FCC0B5F /* Pods_TurnipCalculate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A695328AC537C22330EDEF /* Pods_TurnipCalculate.framework */; };
 		8C23C4BB28D710AA008DF3C6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C23C4BA28D710AA008DF3C6 /* Extension.swift */; };
 		8C23C4BE28D710F2008DF3C6 /* TurnipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C23C4BD28D710F2008DF3C6 /* TurnipService.swift */; };
-		8C8220CC28D83B70005051EF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8220CB28D83B70005051EF /* OnboardingViewController.swift */; };
+		8CDB8B082912B43C0088D972 /* EnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB8B072912B43C0088D972 /* EnterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,17 +25,15 @@
 		3D84376B27B7A08F00BEBDF6 /* TurnipCalculate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurnipCalculate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D84376E27B7A08F00BEBDF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D84377027B7A08F00BEBDF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D84377227B7A08F00BEBDF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3D84377527B7A08F00BEBDF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D84377227B7A08F00BEBDF6 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		3D84377727B7A09300BEBDF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3D84377A27B7A09300BEBDF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D84377C27B7A09300BEBDF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		3D84378527B816CD00BEBDF6 /* Turnip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turnip.swift; sourceTree = "<group>"; };
 		4D15662B2B7DC92A270C4372 /* Pods-TurnipCalculate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurnipCalculate.debug.xcconfig"; path = "Target Support Files/Pods-TurnipCalculate/Pods-TurnipCalculate.debug.xcconfig"; sourceTree = "<group>"; };
 		8C23C4BA28D710AA008DF3C6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8C23C4BD28D710F2008DF3C6 /* TurnipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnipService.swift; sourceTree = "<group>"; };
-		8C8220CB28D83B70005051EF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		8CDB8B072912B43C0088D972 /* EnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,15 +69,8 @@
 		3D84376D27B7A08F00BEBDF6 /* TurnipCalculate */ = {
 			isa = PBXGroup;
 			children = (
-				8C23C4BC28D710D6008DF3C6 /* Service */,
-				8C4A7C8C28C7FFE000B1CF58 /* Model */,
-				8C23C4B928D7108C008DF3C6 /* Extensions */,
-				8C4A7C8F28C8036900B1CF58 /* View */,
-				3D84378427B7FFF100BEBDF6 /* Controller */,
-				3D84376E27B7A08F00BEBDF6 /* AppDelegate.swift */,
-				3D84377027B7A08F00BEBDF6 /* SceneDelegate.swift */,
-				3D84377727B7A09300BEBDF6 /* Assets.xcassets */,
-				3D84377927B7A09300BEBDF6 /* LaunchScreen.storyboard */,
+				8CDB8B0429129F570088D972 /* Resource */,
+				8CDB8B0329129F260088D972 /* Source */,
 				3D84377C27B7A09300BEBDF6 /* Info.plist */,
 			);
 			path = TurnipCalculate;
@@ -90,9 +79,8 @@
 		3D84378427B7FFF100BEBDF6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3D84377227B7A08F00BEBDF6 /* EnterViewController.swift */,
 				3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */,
-				3D84377227B7A08F00BEBDF6 /* ViewController.swift */,
-				8C8220CB28D83B70005051EF /* OnboardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -124,9 +112,39 @@
 		8C4A7C8F28C8036900B1CF58 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3D84377427B7A08F00BEBDF6 /* Main.storyboard */,
+				8CDB8B072912B43C0088D972 /* EnterView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8CDB8B0229129EEE0088D972 /* LifeCycles */ = {
+			isa = PBXGroup;
+			children = (
+				3D84376E27B7A08F00BEBDF6 /* AppDelegate.swift */,
+				3D84377027B7A08F00BEBDF6 /* SceneDelegate.swift */,
+			);
+			path = LifeCycles;
+			sourceTree = "<group>";
+		};
+		8CDB8B0329129F260088D972 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8CDB8B0229129EEE0088D972 /* LifeCycles */,
+				8C4A7C8F28C8036900B1CF58 /* View */,
+				3D84378427B7FFF100BEBDF6 /* Controller */,
+				8C23C4BC28D710D6008DF3C6 /* Service */,
+				8C23C4B928D7108C008DF3C6 /* Extensions */,
+				8C4A7C8C28C7FFE000B1CF58 /* Model */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8CDB8B0429129F570088D972 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3D84377727B7A09300BEBDF6 /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		B3B681F3D1227662D1D22A10 /* Frameworks */ = {
@@ -206,9 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D84377B27B7A09300BEBDF6 /* LaunchScreen.storyboard in Resources */,
 				3D84377827B7A09300BEBDF6 /* Assets.xcassets in Resources */,
-				3D84377627B7A08F00BEBDF6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D84377327B7A08F00BEBDF6 /* ViewController.swift in Sources */,
+				3D84377327B7A08F00BEBDF6 /* EnterViewController.swift in Sources */,
 				8C23C4BE28D710F2008DF3C6 /* TurnipService.swift in Sources */,
 				3D84378327B7FFEB00BEBDF6 /* CalculateViewController.swift in Sources */,
-				8C8220CC28D83B70005051EF /* OnboardingViewController.swift in Sources */,
+				8CDB8B082912B43C0088D972 /* EnterView.swift in Sources */,
 				8C23C4BB28D710AA008DF3C6 /* Extension.swift in Sources */,
 				3D84376F27B7A08F00BEBDF6 /* AppDelegate.swift in Sources */,
 				3D84378627B816CD00BEBDF6 /* Turnip.swift in Sources */,
@@ -273,25 +289,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3D84377427B7A08F00BEBDF6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D84377527B7A08F00BEBDF6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3D84377927B7A09300BEBDF6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D84377A27B7A09300BEBDF6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3D84377D27B7A09300BEBDF6 /* Debug */ = {
@@ -345,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -400,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -422,10 +419,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TurnipCalculate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "ACNH - 무주식계산기";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "개인에게 최적화된 광고를 제공하기 위해 사용자의 광고 활동 정보를 수집합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -455,10 +451,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TurnipCalculate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "ACNH - 무주식계산기";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "개인에게 최적화된 광고를 제공하기 위해 사용자의 광고 활동 정보를 수집합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
