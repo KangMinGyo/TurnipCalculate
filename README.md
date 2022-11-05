@@ -1,10 +1,5 @@
 # TurnipCalculate (ACNH - 무주식계산기)
 
-## 👩🏻‍💻제작
-
-### 강민교
-<img src="https://user-images.githubusercontent.com/61138164/194685598-2fb5ef98-a001-44d2-b020-50554b1cf939.png" width="200" height="200"/></img>
-
 ## 💻 기능구현방식
 ### 첫번째화면_무 값 입력
 - TextField를 이용한 무 값 입력
