@@ -203,12 +203,6 @@ class EnterView: UIView {
         return button
     }()
     
-//    lazy var bannerView: GADBannerView = {
-//        let banner = GADBannerView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-//        banner.translatesAutoresizingMaskIntoConstraints = false
-//        return banner
-//    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addView()
@@ -245,7 +239,6 @@ class EnterView: UIView {
         restView.addSubview(pmStackView)
         
         addSubview(calculateButton)
-//        addSubview(bannerView)
     }
     
     
@@ -282,10 +275,8 @@ class EnterView: UIView {
             calculateButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             calculateButton.topAnchor.constraint(equalTo: restView.bottomAnchor, constant: 10),
             calculateButton.heightAnchor.constraint(equalToConstant: 50),
-            calculateButton.widthAnchor.constraint(equalToConstant: 350),
-//            
-//            bannerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            bannerView.topAnchor.constraint(equalTo: calculateButton.bottomAnchor)
+            calculateButton.widthAnchor.constraint(equalToConstant: 350)
+
         ])
     }
 }

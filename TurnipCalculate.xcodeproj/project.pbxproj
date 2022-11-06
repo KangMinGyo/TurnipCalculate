@@ -14,7 +14,7 @@
 		3D84378327B7FFEB00BEBDF6 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */; };
 		3D84378627B816CD00BEBDF6 /* Turnip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84378527B816CD00BEBDF6 /* Turnip.swift */; };
 		5FEB41DFCE08819B0FCC0B5F /* Pods_TurnipCalculate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A695328AC537C22330EDEF /* Pods_TurnipCalculate.framework */; };
-		8C23C4BB28D710AA008DF3C6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C23C4BA28D710AA008DF3C6 /* Extension.swift */; };
+		8C23C4BB28D710AA008DF3C6 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C23C4BA28D710AA008DF3C6 /* UITextField+Extension.swift */; };
 		8C23C4BE28D710F2008DF3C6 /* TurnipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C23C4BD28D710F2008DF3C6 /* TurnipService.swift */; };
 		8CDB8B082912B43C0088D972 /* EnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB8B072912B43C0088D972 /* EnterView.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		3D84378227B7FFEB00BEBDF6 /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		3D84378527B816CD00BEBDF6 /* Turnip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turnip.swift; sourceTree = "<group>"; };
 		4D15662B2B7DC92A270C4372 /* Pods-TurnipCalculate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurnipCalculate.debug.xcconfig"; path = "Target Support Files/Pods-TurnipCalculate/Pods-TurnipCalculate.debug.xcconfig"; sourceTree = "<group>"; };
-		8C23C4BA28D710AA008DF3C6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8C23C4BA28D710AA008DF3C6 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		8C23C4BD28D710F2008DF3C6 /* TurnipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnipService.swift; sourceTree = "<group>"; };
 		8CDB8B072912B43C0088D972 /* EnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,7 +88,7 @@
 		8C23C4B928D7108C008DF3C6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8C23C4BA28D710AA008DF3C6 /* Extension.swift */,
+				8C23C4BA28D710AA008DF3C6 /* UITextField+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 				8C23C4BE28D710F2008DF3C6 /* TurnipService.swift in Sources */,
 				3D84378327B7FFEB00BEBDF6 /* CalculateViewController.swift in Sources */,
 				8CDB8B082912B43C0088D972 /* EnterView.swift in Sources */,
-				8C23C4BB28D710AA008DF3C6 /* Extension.swift in Sources */,
+				8C23C4BB28D710AA008DF3C6 /* UITextField+Extension.swift in Sources */,
 				3D84376F27B7A08F00BEBDF6 /* AppDelegate.swift in Sources */,
 				3D84378627B816CD00BEBDF6 /* Turnip.swift in Sources */,
 				3D84377127B7A08F00BEBDF6 /* SceneDelegate.swift in Sources */,

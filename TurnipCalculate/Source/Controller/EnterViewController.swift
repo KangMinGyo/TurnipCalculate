@@ -35,8 +35,8 @@ class EnterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemGray6
         title = "무 값 입력"
+        view.backgroundColor = .systemGray6
         
         self.navigationItem.rightBarButtonItem = self.initButton
         enterView.calculateButton.addTarget(self, action: #selector(nextView), for: .touchUpInside)
@@ -50,7 +50,6 @@ class EnterViewController: UIViewController {
     
     // MARK: Button Event
     @objc func buttonPressend(_sender: Any) {
-        //초기화 해주기
         enterView.sunTextField.text = ""
         enterView.monAmTextField.text = ""
         enterView.monPmTextField.text = ""
@@ -103,9 +102,7 @@ class EnterViewController: UIViewController {
     }
     
     func setupBanner() {
-        //배너 사이즈 설정
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //Test
         bannerView.adUnitID = "ca-app-pub-2824710392054396/7944605171"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
